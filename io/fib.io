@@ -15,10 +15,6 @@ for(i, 0, 9, fib(i) println)
 
 "--------Recursive--------------" println
 
-fibr := method(n,
-    if(n == 0, return 0)
-    if(n == 1, return 1)
-    fibr(n -1) + fibr(n-2)
-)
+fibr := method(n, if(n < 2, n, fibr(n -1) + fibr(n-2)))
 
 for(i, 0, 9, fibr(i) println)
