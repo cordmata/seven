@@ -1,7 +1,4 @@
-squareBrackets := method(
-    l := list()
-    call message arguments foreach(a, l append(doMessage(a)))
-)
+squareBrackets := method(call message arguments mapInPlace(v, doMessage(v)))
 
 li := [1, 2, 3, 4]
 
