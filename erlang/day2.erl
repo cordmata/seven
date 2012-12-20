@@ -26,14 +26,14 @@ total_cost(Cart) ->
 
 tic_tac(Board) ->
 	case Board of
-		[Win,Win,Win,_,_,_,_,_,_] -> Win;
-		[_,_,_,Win,Win,Win,_,_,_] -> Win;
-		[_,_,_,_,_,_,Win,Win,Win] -> Win;
-		[Win,_,_,Win,_,_,Win,_,_] -> Win;
-		[_,Win,_,_,Win,_,_,Win,_] -> Win;
-		[_,_,Win,_,_,Win,_,_,Win] -> Win;
-		[Win,_,_,_,Win,_,_,_,Win] -> Win;
-		[_,_,Win,_,Win,_,Win,_,_] -> Win;
+		[Win,Win,Win,_,_,_,_,_,_] when Win == "X"; Win == "O" -> Win;
+		[_,_,_,Win,Win,Win,_,_,_] when Win == "X"; Win == "O" -> Win;
+		[_,_,_,_,_,_,Win,Win,Win] when Win == "X"; Win == "O" -> Win;
+		[Win,_,_,Win,_,_,Win,_,_] when Win == "X"; Win == "O" -> Win;
+		[_,Win,_,_,Win,_,_,Win,_] when Win == "X"; Win == "O" -> Win;
+		[_,_,Win,_,_,Win,_,_,Win] when Win == "X"; Win == "O" -> Win;
+		[Win,_,_,_,Win,_,_,_,Win] when Win == "X"; Win == "O" -> Win;
+		[_,_,Win,_,Win,_,Win,_,_] when Win == "X"; Win == "O" -> Win;
 		_ -> case lists:any(fun(X) -> X == " " end, Board) of
 			true -> no_winner;
 			false -> cat
