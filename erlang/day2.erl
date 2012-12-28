@@ -1,5 +1,5 @@
 -module(day2).
--export([lookup/2, item_cost/1, get_cart/0, get_artists/0, 
+-export([lookup/2, item_cost/1, get_cart/0, get_artists/0,
 		 total_cost/1, tic_tac/1]).
 
 get_artists() -> [
@@ -21,7 +21,7 @@ get_cart() -> [
 ].
 
 item_cost(Cart) -> [{Product, Qty * Price} || {Product, Qty, Price} <- Cart].
-total_cost(Cart) -> 
+total_cost(Cart) ->
 	lists:foldl(fun({_, Icost}, Sum) -> Icost + Sum end, 0, item_cost(Cart)).
 
 tic_tac(Board) ->
