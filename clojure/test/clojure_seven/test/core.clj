@@ -19,6 +19,6 @@
   (doseq [[coltype col] types]
     (is (= coltype (collection-type col)) "Ensure type is correct.")
     ;; test that this collection's type is not any of the other defined types
-    (doseq [[otherct _] types :while (not= otherct coltype)]
+    (doseq [[otherct _] types :when (not= otherct coltype)]
       (is (not= otherct (collection-type col))
            "Ensure type is not identified as any other type."))))
