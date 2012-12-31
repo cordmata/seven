@@ -22,3 +22,8 @@
     (doseq [[otherct _] types :when (not= otherct coltype)]
       (is (not= otherct (collection-type col))
            "Ensure type is not identified as any other type."))))
+
+(deftest test-unless-macro
+  (is (= "ho" (unless true "hi" "ho")) "Test true unless clause")
+  (is (= "hi" (unless false "hi" "ho")) "Test false unless clause"))
+

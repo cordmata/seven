@@ -12,3 +12,6 @@
     (list? col) :list
     (vector? col) :vector
     :else :no_idea))
+
+(defmacro unless [testcond trueclause falseclause]
+  `(if (not ~testcond) ~trueclause ~falseclause))
