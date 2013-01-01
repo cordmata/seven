@@ -1,5 +1,6 @@
 (ns clojure_seven.test.core
   (:use [clojure_seven.core])
+  (:import [clojure_seven.core PickyEater AdventurousEater SuggestibleEater])
   (:use [clojure.test]))
 
 (deftest test-big
@@ -27,3 +28,13 @@
   (is (= "ho" (unless true "hi" "ho")) "Test true unless clause")
   (is (= "hi" (unless false "hi" "ho")) "Test false unless clause"))
 
+
+(deftest test-eaters
+  (def picky (PickyEater.))
+  (def adventurous (AdventurousEater.))
+  (def suggestible (SuggestibleEater. [:greens :sausage :peas]))
+  (is (= "It's fine." (feed picky :chicken)) "Test that the picky eater likes chicken.")
+  (is (= "Ugh, so gross." (feed picky :cheese)) "Test that the picky eater doesn't like cheese.")
+  (is (= "Yum, thank you!" (feed adventurous :squid)) "Test that the adventurous eater likes squid.")
+  (is (= "Yum, thank you!" (feed suggestible :sausage)) "Test that the suggestable eater likes sausage.")
+  (is (= "Veeeeery interesting." (feed suggestible :mushrooms)) "Test that the suggestable eater dislikes mushrooms."))
