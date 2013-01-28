@@ -37,3 +37,16 @@
   Eater
   (likes? [self food] (contains? (set suggestions) food))
   (feed [self food] (eat-politely self food)))
+
+(def accounts (ref []))
+
+(defn debit [acct amt]
+  (dosync (alter accounts assoc acct (- (@accounts acct) amt))))
+
+(defn credit [acct amt]
+  (dosync (alter accounts assoc acct (+ (@accounts acct) amt))))
+
+(defn add-account []
+  (dosync
+    (alter accounts conj 0))
+  (- (count @accounts) 1))
