@@ -1,8 +1,8 @@
 (ns clojure_seven.barber)
 
-(def max-chairs 3)            ;; number of chairs in the waiting area
-(def time-open (* 10 1000))   ;; how many milliseconds the shop is open
-(def length-of-haircut 20)    ;; the barber takes to
+(def max-chairs 3)
+(def time-open (* 10 1000))
+(def length-of-haircut 20)
 
 (def shop-open? (atom false))
 (def barber-busy? (ref false))
